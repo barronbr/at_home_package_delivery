@@ -1,0 +1,93 @@
+
+<div class="row isotope-container">
+<h3>Packages</h3>
+<div class="row">
+<div class="col-sm-3">
+  <a class="btn btn-primary btn-lg" href="/packages/new" role="button">Enter New Package</a>
+</div>
+</div>
+<% @packages.each do |package| %>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Package #<%= package.id %></h3>
+      </div>
+      <div class="panel-body">
+        <dl>
+          <dt>Carrier</dt>
+          <dd><%= package.carrier %></dd>
+
+          <dt>User</dt>
+          <dd><%= package.user_id %></dd>
+
+          <dt>Tracking number</dt>
+          <dd><%= package.tracking_number %></dd>
+
+        </dl>
+        <div class="btn-group btn-group-justified">
+          <a href="/packages/<%= package.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+
+          <a href="/packages/<%= package.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+
+          <a href="/delete_package/<%= package.id %>" class="btn btn-danger" rel="nofollow">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
+
+<div class="row isotope-container">
+<h3>Current Schedule</h3>
+<div class="row">
+  <div class="col-sm-3">
+    <a class="btn btn-primary btn-lg" href="/schedules/new" role="button">Enter New Schedule</a>
+  </div>
+</div>
+<% @schedules.each do |schedule| %>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Schedule #<%= schedule.id %></h3>
+      </div>
+      <div class="panel-body">
+        <dl>
+          <dt>User</dt>
+          <dd><%= schedule.user_id %></dd>
+
+          <dt>End time</dt>
+          <dd><%= schedule.end_time %></dd>
+
+          <dt>Start time</dt>
+          <dd><%= schedule.start_time %></dd>
+
+          <dt>Date</dt>
+          <dd><%= schedule.date %></dd>
+
+        </dl>
+        <div class="btn-group btn-group-justified">
+          <a href="/schedules/<%= schedule.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+
+          <a href="/schedules/<%= schedule.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+
+          <a href="/delete_schedule/<%= schedule.id %>" class="btn btn-danger" rel="nofollow">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
