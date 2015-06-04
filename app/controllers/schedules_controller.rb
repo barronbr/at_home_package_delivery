@@ -16,7 +16,7 @@ class SchedulesController < ApplicationController
     @schedule.user_id = current_user.id
     @schedule.end_time = params[:end_time]
     @schedule.start_time = params[:start_time]
-    @schedule.date = params[:date]
+    @schedule.date = Chronic.parse(params[:date])
 
     if @schedule.save
       redirect_to "/schedules", :notice => "Schedule created successfully."
@@ -32,10 +32,10 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
 
-    @schedule.user_id = params[:user_id]
+    @schedule.user_id = current_user.id
     @schedule.end_time = params[:end_time]
     @schedule.start_time = params[:start_time]
-    @schedule.date = params[:date]
+    @schedule.date = Chronic.parse(params[:date])
 
     if @schedule.save
       redirect_to "/schedules", :notice => "Schedule updated successfully."

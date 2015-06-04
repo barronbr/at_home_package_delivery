@@ -23,22 +23,22 @@
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
           <!-- Label and input for user_id -->
-          <div class="form-group">
+<!--           <div class="form-group">
             <label for="user_id" class="col-sm-2 control-label">
               User
             </label>
             <div class="col-sm-10">
               <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @schedule.user_id %>">
             </div>
-          </div>
+          </div> -->
 
-          <!-- Label and input for end_time -->
+          <!-- Label and input for start_time -->
           <div class="form-group">
-            <label for="end_time" class="col-sm-2 control-label">
-              End time
+            <label for="start_time" class="col-sm-2 control-label">
+              Time I'll Leave Home
             </label>
             <div class="col-sm-10">
-            <select name="end_time">
+            <select name="start_time">
               <option value="5:00">5:00am</option>
               <option value="6:00">6:00am</option>
               <option value="7:00">7:00am</option>
@@ -61,10 +61,10 @@
             </div>
           </div>
 
-          <!-- Label and input for start_time -->
+          <!-- Label and input for end_time -->
           <div class="form-group">
-            <label for="start_time" class="col-sm-2 control-label">
-              Start time
+            <label for="end_time" class="col-sm-2 control-label">
+              Time I'll Come Home
             </label>
             <div class="col-sm-10">
             <select name="end_time">
@@ -95,8 +95,11 @@
             <label for="date" class="col-sm-2 control-label">
               Date
             </label>
-            <div class="col-sm-10">
-              <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @schedule.date %>">
+            <div class='input-group date' id='datetimepicker1'>
+              <input type='text' class="form-control" name="date" id="date" value="<%= @schedule.date %>">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+              </span>
             </div>
           </div>
 
@@ -117,3 +120,10 @@
 
 
 <!-- End responsive panel example -->
+
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker1').datetimepicker();
+  });
+</script>
+

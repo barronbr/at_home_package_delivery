@@ -32,7 +32,7 @@ class PackagesController < ApplicationController
     @package = Package.find(params[:id])
 
     @package.carrier = params[:carrier]
-    @package.user_id = params[:user_id]
+    @package.user_id = current_user.id
     @package.tracking_number = params[:tracking_number]
 
     if @package.save

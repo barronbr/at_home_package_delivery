@@ -24,17 +24,17 @@
       </div>
       <div class="panel-body">
         <dl>
-          <dt>User</dt>
-          <dd><%= schedule.user_id %></dd>
 
-          <dt>End time</dt>
-          <dd><%= schedule.end_time %></dd>
+          <dt>Time I leave home</dt>
+          <dd><%= schedule.start_time.strftime("%H:%M")%>
+          </dd>
 
-          <dt>Start time</dt>
-          <dd><%= schedule.start_time %></dd>
+          <dt>Time I come home</dt>
+          <dd><%= schedule.end_time.strftime("%H:%M")%>
+          </dd>
 
           <dt>Date</dt>
-          <dd><%= schedule.date %></dd>
+          <dd><%= schedule.date.strftime("%v at %I%M%P") %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
